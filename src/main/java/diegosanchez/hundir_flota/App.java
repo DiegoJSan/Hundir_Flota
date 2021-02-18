@@ -18,10 +18,10 @@ public class App extends Application {
         stage.show();
         
         Tablero TableroJugador1 = new Tablero();
-        TableroJugador1.generarbarco1(4);
-        TableroJugador1.generarbarco2(3);
-        TableroJugador1.generarbarco3(2);
-        TableroJugador1.generarbarco4(1);
+        TableroJugador1.generarBarco1(4);
+        TableroJugador1.generarBarco2(3);
+        TableroJugador1.generarBarco3(2);
+        TableroJugador1.generarBarco4(1);
     }
     
     public static void main(String[] args) {
