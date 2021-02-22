@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     
+   
+    boolean barco2Creado;
+    boolean barco3Creado;
     boolean barco4Creado;
     
     @Override
@@ -19,17 +22,28 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
        
+        Tablero tableroJugador1;
+        tableroJugador1 = new Tablero();
+        //Crear los barcos en el tablero
+        //
+        tableroJugador1.cantBarcos1(4);
         
-        Tablero TableroJugador1 = new Tablero();
-        //TableroJugador1.generarBarco1(4);
-        //TableroJugador1.generarBarco2(3);
-        //TableroJugador1.generarBarco3(2);
-        //TableroJugador1.generarBarco4();
+        do{
+            barco2Creado = tableroJugador1.generarBarco2();
+        } while (barco2Creado == false);
+        do{
+            barco2Creado = tableroJugador1.generarBarco2();
+        } while (barco2Creado == false);
         
-        do {
-           barco4Creado = TableroJugador1.generarBarco4();
+        do{
+            barco3Creado = tableroJugador1.generarBarco3();
+        } while (barco3Creado == false);
+        
+        do{
+           barco4Creado = tableroJugador1.generarBarco4();
         } while (barco4Creado == false);
-        TableroJugador1.mostrarPorConsola();    
+        
+        tableroJugador1.mostrarPorConsola();    
     }
     
     public static void main(String[] args) {

@@ -11,13 +11,13 @@ public class Tablero {
     int horizontal;
     
     //Generar barcos de 1 casilla
-   /* public void generarBarco1 (int numBarcos1){ //void = retorno , generar = nombre de la clase. Se declara el método
+    public boolean generarBarco1 (){ 
         // Variables para la posición inicial
         barco = new int[10][10];
         int posicionXBarco1;
         int posicionYBarco1;
         //Bucle para cantidad de barcos de 1 casilla
-        for(int i=0; i<numBarcos1; i++){
+        try{
             do{
                 //posicionar el barco de 1 casilla
                 posicionXBarco1 = getNumeroAleatorio(0,9);
@@ -27,66 +27,88 @@ public class Tablero {
             }while (barco[posicionXBarco1][posicionYBarco1] != 0); 
                 //Generar el barco si no está ocupada la casilla
                 barco[posicionXBarco1][posicionYBarco1] = 1;
-        }      
+        } catch (Exception ex) {
+                System.out.println("No se ha creado el barco 1");
+                System.out.println(ex.getMessage());
+                return false;
+         }  
+        return true;
+    
     } 
     //Generar barcos de 2 casillas
-    public void generarBarco2 (int numBarcos2){ //void = retorno , generar = nombre de la clase. Se declara el método
+    public boolean generarBarco2 (){ 
         // Variables para la posición inicial
+        
         int posicionXBarco2;
         int posicionYBarco2;
-        //Bucle para cantidad de barcos de 2 casillas
-        for(int i=0; i<numBarcos2; i++){
+ 
+        //Llamar al metodo getHorizVert()
+        getHorizVert();
+        
+        System.out.println("h2 = " + horizontal + "  v2= " + vertical);
+        //Bucle para cantidad de barcos de 4 casillas
+        try{
             do{
-                //posicionar el barco de 2 casillas
-                posicionXBarco2 = getNumeroAleatorio(0,8);
+                //posicionar el barco de 4 casillas
+                posicionXBarco2 = getNumeroAleatorio(0,9);
                 posicionYBarco2 = getNumeroAleatorio(0,9);
                 System.out.println("x2 = " + posicionXBarco2 + "  y2= " + posicionYBarco2);
-                //Comprobar que las casillas no están ocupadas
-            }while (barco[posicionXBarco2][posicionYBarco2] != 0 || barco[posicionXBarco2 + 1][posicionYBarco2] != 0); 
-                //Generar el barco si no está ocupada la casilla más casilla contigua
+                //Comprobar que las casillas no están ocupadas 
+            }while (barco[posicionXBarco2][posicionYBarco2] != 0  || barco[posicionXBarco2 + (1 * horizontal)][posicionYBarco2 + (1 * vertical)] != 0); 
+                //Generar el barco si no está ocupada la casilla más las 3 casillas contiguas
                 barco[posicionXBarco2][posicionYBarco2] = 2;
-                barco[posicionXBarco2 + 1][posicionYBarco2 + 0] = 2;
-        }    
-    } 
+                barco[posicionXBarco2 + (1 * horizontal)][posicionYBarco2 + (1 * vertical)] = 2;
+         } catch (Exception ex) {
+                System.out.println("No se ha creado el barco 2");
+                System.out.println(ex.getMessage());
+                return false;
+         }  
+        return true;
+    
+    }
     //Generar barcos de 3 casillas
-    public void generarBarco3 (int numBarcos3){ //void = retorno , generar = nombre de la clase. Se declara el método
+    public boolean generarBarco3 (){
         // Variables para la posición inicial
         int posicionXBarco3;
         int posicionYBarco3;
-        //Bucle para cantidad de barcos de 3 casillas
-        for(int i=0; i<numBarcos3; i++){
+ 
+        //Llamar al metodo getHorizVert()
+        getHorizVert();
+        
+        System.out.println("h3 = " + horizontal + "  v3= " + vertical);
+        //Bucle para cantidad de barcos de 4 casillas
+        try{
             do{
-                //posicionar el barco de 3 casillas
-                posicionXBarco3 = getNumeroAleatorio(0,7);
+                //posicionar el barco de 4 casillas
+                posicionXBarco3 = getNumeroAleatorio(0,9);
                 posicionYBarco3 = getNumeroAleatorio(0,9);
                 System.out.println("x3 = " + posicionXBarco3 + "  y3= " + posicionYBarco3);
                 //Comprobar que las casillas no están ocupadas 
-            }while (barco[posicionXBarco3][posicionYBarco3] != 0  || barco[posicionXBarco3 + 1][posicionYBarco3] != 0 || barco[posicionXBarco3 + 2][posicionYBarco3] != 0); 
-                //Generar el barco si no está ocupada la casilla más las 2 casillas contiguas
+            }while (barco[posicionXBarco3][posicionYBarco3] != 0  || barco[posicionXBarco3 + (1 * horizontal)][posicionYBarco3 + (1 * vertical)] != 0 || barco[posicionXBarco3 + (2 * horizontal)][posicionYBarco3 + (2 * vertical)] != 0); 
+                //Generar el barco si no está ocupada la casilla más las 3 casillas contiguas
                 barco[posicionXBarco3][posicionYBarco3] = 3;
-                barco[posicionXBarco3 + 1][posicionYBarco3] = 3;
-                barco[posicionXBarco3 + 2][posicionYBarco3] = 3;
-        }    
-    }*/
+                barco[posicionXBarco3 + (1 * horizontal)][posicionYBarco3 + (1 * vertical)] = 3;
+                barco[posicionXBarco3 + (2 * horizontal)][posicionYBarco3 + (2 * vertical)] = 3;
+         } catch (Exception ex) {
+                System.out.println("No se ha creado el barco 3");
+                System.out.println(ex.getMessage());
+                return false;
+         }  
+        return true;
+    
+    }
     
     //Generar barcos de 4 casillas
     public boolean generarBarco4 (){ 
         
-        barco = new int[10][10];
         // Variables para la posición inicial
         int posicionXBarco4;
         int posicionYBarco4;
  
-        //llamar al metodo getHorizVert()
-        //getHorizVert();
-        // Generar horizontal aleatorio y vertical al contrario
-        horizontal = getNumeroAleatorio (0,1);
-        if (horizontal == 0){
-            vertical = 1;
-        }else {
-            vertical = 0;
-        }
-        System.out.println("h3 = " + horizontal + "  v3= " + vertical);
+        //Llamar al metodo getHorizVert()
+        getHorizVert();
+        
+        System.out.println("h4 = " + horizontal + "  v4= " + vertical);
         //Bucle para cantidad de barcos de 4 casillas
         try{
             do{
@@ -102,26 +124,35 @@ public class Tablero {
                 barco[posicionXBarco4 + (2 * horizontal)][posicionYBarco4 + (2 * vertical)] = 4;
                 barco[posicionXBarco4 + (3 * horizontal)][posicionYBarco4 + (3 * vertical)] = 4;
          } catch (Exception ex) {
-                System.out.println("No se ha creado el barco");
+                System.out.println("No se ha creado el barco 4");
                 System.out.println(ex.getMessage());
                 return false;
          }  
         return true;
     
     }
-      
-
-    public int getHorizVert(){
+     
+    public void cantBarcos1(int cant1){
+        boolean barco1Creado;
+        for(int i=0; i<cant1; i++){
+            do{
+            barco1Creado = generarBarco1();
+            } while (barco1Creado == false);
+        }
+        System.out.println("Número de barcos 1 creados " + generarBarco1());
+    }
+    
+    public int [] getHorizVert(){
         
-        // Generar horizontal aleatorio y vertical contrario
+        // Generar horizontal aleatorhio y vertical contrario
         horizontal = getNumeroAleatorio (0,1);
         if (horizontal == 0){
             vertical = 1;
         }else {
             vertical = 0;
         }
-        return horizontal;
-        return vertical;
+        int [] horizVert = {horizontal,vertical};
+        return horizVert;
     } 
     
     // Muestra los números
