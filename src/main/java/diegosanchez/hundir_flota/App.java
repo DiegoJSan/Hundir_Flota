@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     
-   
+    boolean barco1Creado;
     boolean barco2Creado;
     boolean barco3Creado;
     boolean barco4Creado;
@@ -24,25 +24,21 @@ public class App extends Application {
        
         Tablero tableroJugador1;
         tableroJugador1 = new Tablero();
-        //Crear los barcos en el tablero
-        //
+        
+        //Crear los barcos en el tablero       
         tableroJugador1.cantBarcos1(4);
+        tableroJugador1.cantBarcos2(3);
+        tableroJugador1.cantBarcos3(2);
+        tableroJugador1.cantBarcos4(1);
         
-        do{
-            barco2Creado = tableroJugador1.generarBarco2();
-        } while (barco2Creado == false);
-        do{
-            barco2Creado = tableroJugador1.generarBarco2();
-        } while (barco2Creado == false);
-        
-        do{
-            barco3Creado = tableroJugador1.generarBarco3();
-        } while (barco3Creado == false);
-        
-        do{
-           barco4Creado = tableroJugador1.generarBarco4();
-        } while (barco4Creado == false);
-        
+        System.out.println("Resultado de disparo en casilla 4, 2 = " + tableroJugador1.getCasillaDisparo(4, 2));
+        int disparo = tableroJugador1.getCasillaDisparo(4, 2);
+        if (disparo == 0){
+            System.out.println("Agua");
+            } else{ 
+            System.out.println("Tocado"); 
+        }
+        //Mostrar el tablero       
         tableroJugador1.mostrarPorConsola();    
     }
     

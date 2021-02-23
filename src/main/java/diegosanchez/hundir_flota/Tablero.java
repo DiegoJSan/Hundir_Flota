@@ -5,15 +5,18 @@ import java.util.Random;
 
 public class Tablero {
     //Array para la creacion del tablero con los barcos
-    int [][] barco;
+    int [][] barco = new int[10][10];
+    //barco = new int[10][10];
     // Variables para horizontal o vertical
     int vertical;
     int horizontal;
     
+    public int getCasillaDisparo(int disparoX, int distaroY) {
+        return barco[disparoX][distaroY];
+    }
     //Generar barcos de 1 casilla
     public boolean generarBarco1 (){ 
         // Variables para la posición inicial
-        barco = new int[10][10];
         int posicionXBarco1;
         int posicionYBarco1;
         //Bucle para cantidad de barcos de 1 casilla
@@ -129,21 +132,50 @@ public class Tablero {
                 return false;
          }  
         return true;
+     }
     
-    }
-     
+    //Método para hacer bucle de varios barcos de 1 
     public void cantBarcos1(int cant1){
-        boolean barco1Creado;
-        for(int i=0; i<cant1; i++){
+        boolean barco1Creado;       
+        for(int i=0; i<(cant1); i++){
             do{
             barco1Creado = generarBarco1();
             } while (barco1Creado == false);
         }
-        System.out.println("Número de barcos 1 creados " + generarBarco1());
     }
     
-    public int [] getHorizVert(){
-        
+    //Método para hacer bucle de varios barcos de 2
+    public void cantBarcos2(int cant2){
+        boolean barco2Creado;       
+        for(int i=0; i<(cant2); i++){
+            do{
+            barco2Creado = generarBarco2();
+            } while (barco2Creado == false);
+        }
+    }
+    
+    //Método para hacer bucle de varios barcos de 3
+    public void cantBarcos3(int cant3){
+        boolean barco3Creado;        
+        for(int i=0; i<(cant3); i++){
+            do{
+            barco3Creado = generarBarco3();
+            } while (barco3Creado == false);
+        }
+    }
+    
+    //Método para hacer bucle de varios barcos de 4
+    public void cantBarcos4(int cant4){
+        boolean barco4Creado;      
+        for(int i=0; i<(cant4); i++){
+            do{
+            barco4Creado = generarBarco4();
+            } while (barco4Creado == false);
+        }
+    }
+    
+    //Método para generarl aleatório para Horizontal o Vertical
+    public int [] getHorizVert(){       
         // Generar horizontal aleatorhio y vertical contrario
         horizontal = getNumeroAleatorio (0,1);
         if (horizontal == 0){
