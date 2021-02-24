@@ -174,7 +174,7 @@ public class Tablero {
         }
     }
     
-    //Método para generarl aleatório para Horizontal o Vertical
+    //Método para generar aleatório Horizontal o Vertical
     public int [] getHorizVert(){       
         // Generar horizontal aleatorhio y vertical contrario
         horizontal = getNumeroAleatorio (0,1);
@@ -199,13 +199,13 @@ public class Tablero {
             System.out.println();
         }
     }
-    
-     public int getNumeroAleatorio(int min, int max){   // get= dame , generar
-        Random random = new Random ();
-        // nim = 1, max = 6
-        int num = random.nextInt(max-min+1) + min;    // 3 = cantidad de numeros  5 = el numero maximo
-        return num;
-     }
+    //Método para generar número aleatorio
+    public int getNumeroAleatorio(int min, int max){   // get= dame , generar
+       Random random = new Random ();
+       // nim = 1, max = 6
+       int num = random.nextInt(max-min+1) + min;    // 3 = cantidad de numeros  5 = el numero maximo
+       return num;
+    }
      
      
 }

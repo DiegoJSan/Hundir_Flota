@@ -10,11 +10,6 @@ import javafx.stage.Stage;
 
 public class App extends Application {
     
-    boolean barco1Creado;
-    boolean barco2Creado;
-    boolean barco3Creado;
-    boolean barco4Creado;
-    
     @Override
     public void start(Stage stage) {
         Pane paneRoot = new Pane();
@@ -26,13 +21,14 @@ public class App extends Application {
         tableroJugador1 = new Tablero();
         
         //Crear los barcos en el tablero       
-        tableroJugador1.cantBarcos1(4);
-        tableroJugador1.cantBarcos2(3);
-        tableroJugador1.cantBarcos3(2);
         tableroJugador1.cantBarcos4(1);
+        tableroJugador1.cantBarcos3(2);
+        tableroJugador1.cantBarcos2(3);
+        tableroJugador1.cantBarcos1(4);
         
-        System.out.println("Resultado de disparo en casilla 4, 2 = " + tableroJugador1.getCasillaDisparo(4, 2));
-        int disparo = tableroJugador1.getCasillaDisparo(4, 2);
+        //comprovar qúe hay en la casilla elegida
+        int disparo = tableroJugador1.getCasillaDisparo(4, 6);      
+        System.out.println("Resultado de disparo en casilla 4, 6 = " + disparo);
         if (disparo == 0){
             System.out.println("Agua");
             } else{ 
