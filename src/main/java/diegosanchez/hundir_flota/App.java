@@ -3,7 +3,7 @@ package diegosanchez.hundir_flota;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
@@ -12,13 +12,16 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) {
-        Pane paneRoot = new Pane();
+        BorderPane paneRoot = new BorderPane();
         var scene = new Scene(paneRoot, 640, 480);
         stage.setScene(scene);
         stage.show();
        
-        Tablero tableroJugador1;
-        tableroJugador1 = new Tablero();
+        Tablero tableroJugador1 = new Tablero();
+        
+        TableroVista tableroVista = new TableroVista();
+        paneRoot.setCenter(tableroVista);
+        
         
         //Crear los barcos en el tablero       
         tableroJugador1.cantBarcos4(1);
