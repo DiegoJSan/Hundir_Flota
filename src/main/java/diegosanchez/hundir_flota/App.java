@@ -19,7 +19,7 @@ public class App extends Application {
        
         Tablero tableroJugador1 = new Tablero();
         
-        TableroVista tableroVista = new TableroVista();
+        TableroVista tableroVista = new TableroVista(tableroJugador1);
         paneRoot.setCenter(tableroVista);
         
         
@@ -29,16 +29,16 @@ public class App extends Application {
         tableroJugador1.cantBarcos2(3);
         tableroJugador1.cantBarcos1(4);
         
-        //comprovar qúe hay en la casilla elegida
-        int disparo = tableroJugador1.getCasillaDisparo(4, 6);      
-        System.out.println("Resultado de disparo en casilla 4, 6 = " + disparo);
+        //Comprobar qué hay en la casilla elegida
+        int disparo = tableroJugador1.getCasillaDisparo(9, 9);      
+        System.out.println("Resultado de disparo en casilla 9, 9 = " + disparo);
         if (disparo == 0){
             System.out.println("Agua");
             } else{ 
             System.out.println("Tocado"); 
         }
         //Mostrar el tablero       
-        tableroJugador1.mostrarPorConsola();    
+        tableroJugador1.mostrarPorConsola();   
     }
     
     public static void main(String[] args) {

@@ -11,9 +11,6 @@ public class Tablero {
     int vertical;
     int horizontal;
     
-    public int getCasillaDisparo(int disparoX, int distaroY) {
-        return barco[disparoX][distaroY];
-    }
     //Generar barcos de 1 casilla
     public boolean generarBarco1 (){ 
         // Variables para la posición inicial
@@ -207,5 +204,13 @@ public class Tablero {
        return num;
     }
      
-     
+    //Método para saber lo que hay en la casilla selecccionada
+    public int getCasillaDisparo(int disparoX, int distaroY) {
+        try {
+            return barco[disparoX][distaroY];
+        } catch (Exception ex){
+            System.out.println("La posición es incorrecta");
+            return -1;
+        }
+    } 
 }
