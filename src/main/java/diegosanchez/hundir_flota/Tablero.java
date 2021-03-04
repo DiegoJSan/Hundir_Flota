@@ -4,9 +4,13 @@ import java.util.Random;
 
 
 public class Tablero {
+    
+    final int NUM_COLUMNAS = 10;
+    final int NUM_FILAS = 10;
+    
     //Array para la creacion del tablero con los barcos
-    int [][] barco = new int[10][10];
-    //barco = new int[10][10];
+    int [][] barco = new int[NUM_COLUMNAS][NUM_FILAS];
+    
     // Variables para horizontal o vertical
     int vertical;
     int horizontal;
@@ -20,8 +24,8 @@ public class Tablero {
         try{
             do{
                 //posicionar el barco de 1 casilla
-                posicionXBarco1 = getNumeroAleatorio(0,9);
-                posicionYBarco1 = getNumeroAleatorio(0,9);
+                posicionXBarco1 = getNumeroAleatorio(0,NUM_COLUMNAS -1);
+                posicionYBarco1 = getNumeroAleatorio(0,NUM_FILAS -1);
                 System.out.println("x1 = " + posicionXBarco1 + "  y1= " + posicionYBarco1);
                 //Comprobar que la casilla no está ocupada 
             }while (barco[posicionXBarco1][posicionYBarco1] != 0); 
@@ -50,8 +54,8 @@ public class Tablero {
         try{
             do{
                 //posicionar el barco de 4 casillas
-                posicionXBarco2 = getNumeroAleatorio(0,9);
-                posicionYBarco2 = getNumeroAleatorio(0,9);
+                posicionXBarco2 = getNumeroAleatorio(0,NUM_COLUMNAS -1);
+                posicionYBarco2 = getNumeroAleatorio(0,NUM_FILAS -1);
                 System.out.println("x2 = " + posicionXBarco2 + "  y2= " + posicionYBarco2);
                 //Comprobar que las casillas no están ocupadas 
             }while (barco[posicionXBarco2][posicionYBarco2] != 0  || barco[posicionXBarco2 + (1 * horizontal)][posicionYBarco2 + (1 * vertical)] != 0); 
@@ -80,8 +84,8 @@ public class Tablero {
         try{
             do{
                 //posicionar el barco de 4 casillas
-                posicionXBarco3 = getNumeroAleatorio(0,9);
-                posicionYBarco3 = getNumeroAleatorio(0,9);
+                posicionXBarco3 = getNumeroAleatorio(0,NUM_COLUMNAS -1);
+                posicionYBarco3 = getNumeroAleatorio(0,NUM_FILAS -1);
                 System.out.println("x3 = " + posicionXBarco3 + "  y3= " + posicionYBarco3);
                 //Comprobar que las casillas no están ocupadas 
             }while (barco[posicionXBarco3][posicionYBarco3] != 0  || barco[posicionXBarco3 + (1 * horizontal)][posicionYBarco3 + (1 * vertical)] != 0 || barco[posicionXBarco3 + (2 * horizontal)][posicionYBarco3 + (2 * vertical)] != 0); 
@@ -113,8 +117,8 @@ public class Tablero {
         try{
             do{
                 //posicionar el barco de 4 casillas
-                posicionXBarco4 = getNumeroAleatorio(0,9);
-                posicionYBarco4 = getNumeroAleatorio(0,9);
+                posicionXBarco4 = getNumeroAleatorio(0,NUM_COLUMNAS -1);
+                posicionYBarco4 = getNumeroAleatorio(0,NUM_FILAS -1);
                 System.out.println("x4 = " + posicionXBarco4 + "  y4= " + posicionYBarco4);
                 //Comprobar que las casillas no están ocupadas 
             }while (barco[posicionXBarco4][posicionYBarco4] != 0  || barco[posicionXBarco4 + (1 * horizontal)][posicionYBarco4 + (1 * vertical)] != 0 || barco[posicionXBarco4 + (2 * horizontal)][posicionYBarco4 + (2 * vertical)] != 0 || barco[posicionXBarco4 + (3 * horizontal)][posicionYBarco4 + (3 * vertical)] != 0); 
@@ -187,9 +191,9 @@ public class Tablero {
     // Muestra los números
     public void mostrarPorConsola(){
         //Bucle filas
-        for(int y=0; y<10; y++){
+        for(int y=0; y<NUM_FILAS; y++){
             //Bucles columnas
-            for(int x=0; x<10; x++){
+            for(int x=0; x<NUM_COLUMNAS; x++){
                 //System.out.println("x=" + x + "y=" + y);
                 System.out.print(barco [x][y] + " ");
             }
