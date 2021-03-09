@@ -216,5 +216,9 @@ public class Tablero {
             System.out.println("La posición es incorrecta");
             return -1;
         }
-    } 
+    }
+    
+    //Array para la creacion de los apuntes con los resultados
+    int [][] apuntes = new int[NUM_COLUMNAS][NUM_FILAS];
+    apuntes = 
 }

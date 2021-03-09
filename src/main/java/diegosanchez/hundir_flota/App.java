@@ -15,10 +15,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         
-        int resultado;
+        
         
         BorderPane paneRoot = new BorderPane();
-        var scene = new Scene(paneRoot, 640, 480);
+        var scene = new Scene(paneRoot, 900, 600);
         stage.setScene(scene);
         stage.show();
         
@@ -31,15 +31,21 @@ public class App extends Application {
         tableroJugador1.cantBarcos2(3);
         tableroJugador1.cantBarcos1(4);
         
+        //Crear objeto y mostrar el método para la parte gráfica del Letrero
+        Letrero letrero = new Letrero();
+        paneRoot.setTop(letrero);
+        
         //Crear objeto y mostrar el método para la parte gráfica del tablero
-        TableroVista tableroVista = new TableroVista(tableroJugador1);
+        TableroVista tableroVista = new TableroVista(tableroJugador1, letrero);
         paneRoot.setCenter(tableroVista);
         
         //Crear objeto y mostrar el método para la parte gráfica del marcador
         Marcador marcador = new Marcador();
-        paneRoot.setLeft(marcador);
+        paneRoot.setLeft(marcador);   
         
-        
+        //Crear objeto y mostrar el método para la parte gráfica del Recuento
+        Recuento recuento = new Recuento();
+        paneRoot.setRight(recuento);
         
         
         //Mostrar el tablero       

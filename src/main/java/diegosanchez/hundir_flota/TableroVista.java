@@ -11,6 +11,7 @@ import javafx.scene.shape.Rectangle;
 
 public class TableroVista extends GridPane {
     
+    Letrero letrero;
     Tablero tableroJugador1;
     final int TAMAÑO_X = 40;
     final int TAMAÑO_Y = 40;
@@ -19,8 +20,9 @@ public class TableroVista extends GridPane {
     int resultado;
     
     //Método para mostrar gráficamente las casillas del tablero    
-    public TableroVista(Tablero tableroJugador1) {
+    public TableroVista(Tablero tableroJugador1, Letrero letrero) {
         
+        this.letrero = letrero;
         this.tableroJugador1 = tableroJugador1;
         this.setStyle("-fx-grid-lines-visible: true");
         for(int y=0; y<tableroJugador1.NUM_FILAS; y++) {
@@ -68,6 +70,7 @@ public class TableroVista extends GridPane {
             System.out.println("Resultado: " + resultado);
             
             this.resultadoDisparo();
+            letrero.tiro(resultado);
         });
     }
     /**
@@ -79,9 +82,12 @@ public class TableroVista extends GridPane {
         System.out.println("Resultado de disparo = " + resultado);
         if (resultado == 0){
             System.out.println("Agua");
+           
             } else{ 
             System.out.println("Tocado");
         }
         return resultado;
     }
+    
+    
 }
