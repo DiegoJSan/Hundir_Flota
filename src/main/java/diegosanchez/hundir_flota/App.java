@@ -49,7 +49,7 @@ public class App extends Application {
         
         
         //Mostrar el tablero       
-        tableroJugador1.mostrarPorConsola();   
+        tableroJugador1.mostrarPorConsolaBarco();   
     }
     
     public static void main(String[] args) {

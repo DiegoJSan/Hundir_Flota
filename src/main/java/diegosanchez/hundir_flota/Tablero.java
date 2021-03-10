@@ -11,6 +11,9 @@ public class Tablero {
     //Array para la creacion del tablero con los barcos
     int [][] barco = new int[NUM_COLUMNAS][NUM_FILAS];
     
+    //Array para la creacion de notas y saber qué hay en cada casilla
+    int [][] apuntes = new int[NUM_COLUMNAS][NUM_FILAS];
+    
     // Variables para horizontal o vertical
     int vertical;
     int horizontal;
@@ -189,7 +192,7 @@ public class Tablero {
     } 
     
     // Muestra los números
-    public void mostrarPorConsola(){
+    public void mostrarPorConsolaBarco(){
         //Bucle filas
         for(int y=0; y<NUM_FILAS; y++){
             //Bucles columnas
@@ -200,6 +203,20 @@ public class Tablero {
             System.out.println();
         }
     }
+    
+    // Muestra los números
+    public void mostrarPorConsolaApuntes(){
+        //Bucle filas
+        for(int y=0; y<NUM_FILAS; y++){
+            //Bucles columnas
+            for(int x=0; x<NUM_COLUMNAS; x++){
+                //System.out.println("x=" + x + "y=" + y);
+                System.out.print(apuntes [x][y] + " ");
+            }
+            System.out.println();
+        }
+    }
+    
     //Método para generar número aleatorio
     public int getNumeroAleatorio(int min, int max){   // get= dame , generar
        Random random = new Random ();
@@ -218,7 +235,16 @@ public class Tablero {
         }
     }
     
-    //Array para la creacion de los apuntes con los resultados
-    int [][] apuntes = new int[NUM_COLUMNAS][NUM_FILAS];
-    apuntes = 
+    //Método para apuntar cada clic de cada casilla
+    public void mostrarApuntes (int resultado, int columnaClic, int filaClic){
+       
+        if (resultado == 0){
+            resultado = 9;
+        }
+        apuntes[columnaClic][filaClic] = resultado;
+        System.out.println("Mostrar apuntes: ");
+        mostrarPorConsolaApuntes();
+    }
+    
+    
 }
