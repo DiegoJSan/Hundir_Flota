@@ -18,14 +18,17 @@ import javafx.scene.text.Text;
  */
 public class Marcador extends VBox {
     
-    public Marcador(){
+    int puntos_J1 = 0;
+    
+    public Marcador(Tablero tableroJugador1, TableroVista tableroVista){
         
         
         Label labelPuntosJugador1 = new Label ("Puntos Jugador 1: ");
         labelPuntosJugador1.setFont(Font.font(20));
         labelPuntosJugador1.setAlignment(Pos.CENTER);
         
-        Label LabelPuntuacionJugador1 = new Label ("0");
+        String stringPuntos_J1 = String.valueOf(puntos_J1);
+        Label LabelPuntuacionJugador1 = new Label (stringPuntos_J1);
         LabelPuntuacionJugador1.setFont(Font.font(20));
         LabelPuntuacionJugador1.setAlignment(Pos.CENTER);
         
@@ -46,5 +49,25 @@ public class Marcador extends VBox {
         this.getChildren().add(LabelPuntuacionJugador1);
         this.getChildren().add(labelPuntosJugador2);
         this.getChildren().add(LabelPuntuacionJugador2);
-    }    
+    }  
+    
+    public void Puntuacion (int [][] apuntes, int columnaClic, int filaClic, int resultado) {
+        if (apuntes[columnaClic][filaClic] == 1){
+            puntos_J1 = +1;
+        };
+        System.out.println(puntos_J1);
+        
+        if (resultado == 1){
+            puntos_J1 = +1;
+        };
+        System.out.println(puntos_J1);
+        
+        if (apuntes[columnaClic][filaClic] == 2){
+            puntos_J1 = +2;
+        };
+        
+        if (resultado == 2){
+            puntos_J1 = +2;
+        };
+    }
 }

@@ -30,4 +30,6 @@ public class Recuento extends VBox {
         this.getChildren().add(labelBarcosHundidosJ1_1);
         this.getChildren().add(labelBarcosHundidosJ1_2);
     }
+    
+    
 }

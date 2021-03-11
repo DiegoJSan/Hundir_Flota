@@ -40,7 +40,7 @@ public class App extends Application {
         paneRoot.setCenter(tableroVista);
         
         //Crear objeto y mostrar el método para la parte gráfica del marcador
-        Marcador marcador = new Marcador();
+        Marcador marcador = new Marcador(tableroJugador1,tableroVista);
         paneRoot.setLeft(marcador);   
         
         //Crear objeto y mostrar el método para la parte gráfica del Recuento

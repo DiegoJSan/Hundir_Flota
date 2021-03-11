@@ -15,17 +15,21 @@ public class TableroVista extends GridPane {
     Tablero tableroJugador1;
     final int TAMAÑO_X = 40;
     final int TAMAÑO_Y = 40;
-    int NUM_COLUMNAS;
-    int NUM_FILAS;
     int resultado;
     int columnaClic;
     int filaClic;
+    Rectangle rectanguloCasillaInicial = new Rectangle();
+    Rectangle [][] arrayrectanguloCasillaInicial;
     
     //Método para mostrar gráficamente las casillas del tablero    
     public TableroVista(Tablero tableroJugador1, Letrero letrero) {
         
         this.letrero = letrero;
         this.tableroJugador1 = tableroJugador1;
+        
+        //Crear array para casillas iniciales en azul
+        arrayrectanguloCasillaInicial = new Rectangle[tableroJugador1.NUM_COLUMNAS][tableroJugador1.NUM_FILAS];
+        
         this.setStyle("-fx-grid-lines-visible: true");
         //Bucler para poner en graficos número o casillas
         for(int y=0; y<tableroJugador1.NUM_FILAS; y++) {
@@ -46,19 +50,19 @@ public class TableroVista extends GridPane {
                     rectanguloAgua.setFill(Color.RED);
                     this.add(rectanguloAgua, x, y);
                 }
-            }
-        }
-        //Bucle para poner casillas azules en todo el tablero
-        for(int y=0; y<tableroJugador1.NUM_FILAS; y++) {
-            for (int x=0; x<tableroJugador1.NUM_COLUMNAS; x++) {                                      
-                Rectangle rectanguloCasillaInicial = new Rectangle();
+                //Rectangulos para tapar las casillas
+                rectanguloCasillaInicial = new Rectangle();
                 rectanguloCasillaInicial.setWidth(TAMAÑO_X);
                 rectanguloCasillaInicial.setHeight(TAMAÑO_Y);
                 rectanguloCasillaInicial.setFill(Color.CORNFLOWERBLUE);
                 rectanguloCasillaInicial.setVisible(true);
-                this.add(rectanguloCasillaInicial, x, y);              
+                
+                //
+                arrayrectanguloCasillaInicial [x][y] = rectanguloCasillaInicial;
+                this.add(rectanguloCasillaInicial, x, y); 
             }
         }
+        
         //Ancho y alto del total del gráfico
         this.setMaxWidth(TAMAÑO_X * tableroJugador1.NUM_COLUMNAS);
         this.setMaxHeight(TAMAÑO_Y * tableroJugador1.NUM_FILAS);
@@ -84,6 +88,8 @@ public class TableroVista extends GridPane {
             //Guardar el resultado de la columna y la fila en una variable
             resultado = tableroJugador1.getCasillaDisparo(columnaClic, filaClic);
             System.out.println("Resultado: " + resultado);
+            //Hacer invisible la casilla donde se haga clic
+            arrayrectanguloCasillaInicial [columnaClic][filaClic].setVisible(false);
             
             this.resultadoDisparo();
             letrero.tiro(resultado);
