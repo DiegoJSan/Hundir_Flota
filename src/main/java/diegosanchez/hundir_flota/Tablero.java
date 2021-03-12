@@ -236,7 +236,7 @@ public class Tablero {
     }
     
     //Método para apuntar cada clic de cada casilla
-    public void mostrarApuntes (int resultado, int columnaClic, int filaClic){
+    public void mostrarApuntes (int resultado, int columnaClic, int filaClic, int apuntes [][]){
        
         if (resultado == 0){
             resultado = 9;

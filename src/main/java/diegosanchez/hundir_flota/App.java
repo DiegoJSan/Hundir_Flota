@@ -22,6 +22,8 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         
+       
+        
         //Crear objeto tablero para jugador 1
         Tablero tableroJugador1 = new Tablero();  
         
@@ -32,16 +34,16 @@ public class App extends Application {
         tableroJugador1.cantBarcos1(4);
         
         //Crear objeto y mostrar el método para la parte gráfica del Letrero
-        Letrero letrero = new Letrero();
+        letrero letrero = new letrero();
         paneRoot.setTop(letrero);
         
-        //Crear objeto y mostrar el método para la parte gráfica del tablero
-        TableroVista tableroVista = new TableroVista(tableroJugador1, letrero);
-        paneRoot.setCenter(tableroVista);
-        
         //Crear objeto y mostrar el método para la parte gráfica del marcador
-        Marcador marcador = new Marcador(tableroJugador1,tableroVista);
-        paneRoot.setLeft(marcador);   
+        marcador marcador = new marcador(tableroJugador1);
+        paneRoot.setLeft(marcador); 
+        
+        //Crear objeto y mostrar el método para la parte gráfica del tablero
+        TableroVista tableroVista = new TableroVista(tableroJugador1, letrero, marcador);
+        paneRoot.setCenter(tableroVista);   
         
         //Crear objeto y mostrar el método para la parte gráfica del Recuento
         Recuento recuento = new Recuento();
