@@ -13,9 +13,12 @@ import javafx.scene.layout.VBox;
  */
 public class Botones extends VBox {
     
+    Letrero letrero;
   
 
-    public Botones(Marcador marcador){
+    public Botones(Marcador marcador, Letrero letreo){
+        
+        this.letrero = letrero;
         
         /*Label labelBarcosHundidosJ1_1 = new Label ("Barcos Hundidos");
         labelBarcosHundidosJ1_1.setFont(Font.font(20));
@@ -30,7 +33,8 @@ public class Botones extends VBox {
         // Un botón con la leyenda de texto especificada.
         Button buttonBoton2 = new Button("Reiniciar");
         buttonBoton2.setOnAction((ActionEvent e) -> {
-            marcador.puntos_J1 = 5;   
+            marcador.puntos_J1 = 5; 
+            letrero.quitarImagenGameOver();
         });
         this.setAlignment(Pos.CENTER);
         this.setPrefWidth(200);

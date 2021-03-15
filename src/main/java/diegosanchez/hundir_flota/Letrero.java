@@ -78,14 +78,15 @@ public class Letrero extends HBox{
         imagenGameOverView = new ImageView(imagenGameOver);
         this.getChildren().add(imagenGameOverView);
         
-        /*if (puntos_J1 <= 0){
-            this.getChildren().add(imagenGameOverView);
-            System.out.println("Game Over");
-        } */
+        
         
         //Posicionar imagen Game Over
-        /*imagenGameOverView.setLayoutX(ANCHO_PANTALLA/2 - 258);
-        imagenGameOverView.setLayoutY(ALTO_PANTALLA/2 - 62);*/
+        /*imagenGameOverView.setLayoutX(ANCHO_PANTALLA/2 );
+        imagenGameOverView.setLayoutY(ALTO_PANTALLA/2 );*/
     }
+    
+     public void quitarImagenGameOver(){
+         this.getChildren().remove(imagenGameOverView);
+     }
     
 }

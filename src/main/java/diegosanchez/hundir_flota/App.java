@@ -40,7 +40,7 @@ public class App extends Application {
         paneRoot.setLeft(marcador); 
         
         //Crear objeto y mostrar el método para la parte gráfica del Recuento
-        Botones botones = new Botones(marcador);
+        Botones botones = new Botones(marcador, letrero);
         paneRoot.setRight(botones);
         
         //Crear objeto y mostrar el método para la parte gráfica del tablero
