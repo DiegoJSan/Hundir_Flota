@@ -11,9 +11,9 @@ import javafx.scene.shape.Rectangle;
 
 public class TableroVista extends GridPane {
     
-    letrero letrero;
+    Letrero letrero;
     Tablero tableroJugador1;
-    marcador marcador;
+    Marcador marcador;
     final int TAMAÑO_X = 40;
     final int TAMAÑO_Y = 40;
     int resultado;
@@ -23,7 +23,7 @@ public class TableroVista extends GridPane {
     Rectangle [][] arrayrectanguloCasillaInicial;
     
     //Método para mostrar gráficamente las casillas del tablero    
-    public TableroVista(Tablero tableroJugador1, letrero letrero, marcador marcador) {
+    public TableroVista(Tablero tableroJugador1, Letrero letrero, Marcador marcador) {
         
         this.letrero = letrero;
         this.tableroJugador1 = tableroJugador1;
@@ -95,8 +95,8 @@ public class TableroVista extends GridPane {
             
             this.resultadoDisparo();
             letrero.tiro(resultado);
-            tableroJugador1.mostrarApuntes(resultado, columnaClic, filaClic, tableroJugador1.apuntes);
             marcador.puntuacion(tableroJugador1.apuntes,columnaClic, filaClic, resultado);
+            tableroJugador1.mostrarApuntes(resultado, columnaClic, filaClic, tableroJugador1.apuntes);
             
         });
     }
