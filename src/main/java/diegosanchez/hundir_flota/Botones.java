@@ -32,6 +32,7 @@ public class Botones extends VBox {
             marcador.finalPartida = false;
             //Crear los barcos en el tablero  
             tableroJugador1.generarBarco0();
+            tableroVista.borrarCasillas();
             tableroJugador1.cantBarcos4(1);
             tableroJugador1.cantBarcos3(2);
             tableroJugador1.cantBarcos2(3);

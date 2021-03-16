@@ -85,7 +85,7 @@ public class Marcador extends VBox {
             LabelPuntuacionJugador1.setText(String.valueOf(puntos_J1));
         };
         
-        if (resultado == 0 && finalPartida == false){
+        if (resultado == 0 && apuntes[columnaClic][filaClic] == 0 && finalPartida == false){
             puntos_J1 -= 1;
             System.out.println("Puntos Jugador 1: " + puntos_J1);
             LabelPuntuacionJugador1.setText(String.valueOf(puntos_J1));
@@ -98,7 +98,7 @@ public class Marcador extends VBox {
                 LabelPuntuacionMaxima.setText(String.valueOf(puntoMaximos));
         }
         
-        if (puntos_J1 <= 0){
+        if (puntos_J1 <= 0 ){
             if (finalPartida == false) {
                 letrero.imagenGameOver();
             }

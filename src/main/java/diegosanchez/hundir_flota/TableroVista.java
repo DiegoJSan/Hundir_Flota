@@ -65,6 +65,30 @@ public class TableroVista extends GridPane {
                 arrayrectanguloCasillaInicial [x][y] = rectanguloCasillaInicial;
                 this.add(rectanguloCasillaInicial, x, y); 
             }
+            
+        }
+        //Ancho y alto del total del gráfico
+        this.setMaxWidth(TAMAÑO_X * tableroJugador1.NUM_COLUMNAS);
+        this.setMaxHeight(TAMAÑO_Y * tableroJugador1.NUM_FILAS);
+        this.controlRaton();
+    
+    }
+    
+    public void borrarCasillas () {
+        this.setStyle("-fx-grid-lines-visible: true");
+        //Bucler para poner en graficos número o casillas
+        for(int y=0; y<tableroJugador1.NUM_FILAS; y++) {
+            for (int x=0; x<tableroJugador1.NUM_COLUMNAS; x++) {
+                int numeroPosicion = tableroJugador1.getCasillaDisparo(x, y);
+                //Comprobar lo que hay en la casilla y mostrar 
+                if (numeroPosicion == 0) {
+                    Rectangle rectanguloVacio = new Rectangle();
+                    rectanguloVacio.setWidth(TAMAÑO_X);
+                    rectanguloVacio.setHeight(TAMAÑO_Y);
+                    rectanguloVacio.setFill(Color.WHITE);
+                    this.add(rectanguloVacio, x, y);
+                } 
+            }
         }
         //Ancho y alto del total del gráfico
         this.setMaxWidth(TAMAÑO_X * tableroJugador1.NUM_COLUMNAS);
