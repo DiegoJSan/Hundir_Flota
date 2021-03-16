@@ -31,7 +31,9 @@ public class TableroVista extends GridPane {
         
         //Crear array para casillas iniciales en azul
         arrayrectanguloCasillaInicial = new Rectangle[tableroJugador1.NUM_COLUMNAS][tableroJugador1.NUM_FILAS];
-        
+        crearCasillas ();
+    }   
+    public void crearCasillas () {
         this.setStyle("-fx-grid-lines-visible: true");
         //Bucler para poner en graficos número o casillas
         for(int y=0; y<tableroJugador1.NUM_FILAS; y++) {
@@ -52,25 +54,25 @@ public class TableroVista extends GridPane {
                     rectanguloAgua.setFill(Color.RED);
                     this.add(rectanguloAgua, x, y);
                 }
-                //Rectangulos para tapar las casillas
+                //Rectangulos para tapar las casillas en azul
                 rectanguloCasillaInicial = new Rectangle();
                 rectanguloCasillaInicial.setWidth(TAMAÑO_X);
                 rectanguloCasillaInicial.setHeight(TAMAÑO_Y);
                 rectanguloCasillaInicial.setFill(Color.CORNFLOWERBLUE);
                 rectanguloCasillaInicial.setVisible(true);
                 
-                //
+                //Array para poner todas las casillas iniciales en azul
                 arrayrectanguloCasillaInicial [x][y] = rectanguloCasillaInicial;
                 this.add(rectanguloCasillaInicial, x, y); 
             }
         }
-        
         //Ancho y alto del total del gráfico
         this.setMaxWidth(TAMAÑO_X * tableroJugador1.NUM_COLUMNAS);
         this.setMaxHeight(TAMAÑO_Y * tableroJugador1.NUM_FILAS);
         this.controlRaton();
-        
+    
     }
+
     /**
      * Método para controlar el ratón. Nos da el número que hay en cada casilla
      */
@@ -87,13 +89,18 @@ public class TableroVista extends GridPane {
             filaClic = (int)(mouseEvent.getY() / TAMAÑO_Y); 
             //Mostrar por consola el número de fila y el de columna
             System.out.println("Col: " + columnaClic + "Fil: " + filaClic);
+            
+            
+            if (marcador.finalPartida == false) {
             //Guardar el resultado de la columna y la fila en una variable
             resultado = tableroJugador1.getCasillaDisparo(columnaClic, filaClic);
             System.out.println("Resultado: " + resultado);
             //Hacer invisible la casilla donde se haga clic
             arrayrectanguloCasillaInicial [columnaClic][filaClic].setVisible(false);
+            }
             
             this.resultadoDisparo();
+            
             letrero.tiro(resultado);
             marcador.puntuacion(tableroJugador1.apuntes,columnaClic, filaClic, resultado);
             tableroJugador1.mostrarApuntes(resultado, columnaClic, filaClic, tableroJugador1.apuntes);

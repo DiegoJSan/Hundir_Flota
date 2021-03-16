@@ -18,6 +18,7 @@ public class Marcador extends VBox {
     
     int puntos_J1 = 5;
     int puntoMaximos = 0;
+    boolean finalPartida = false;
     Label LabelPuntuacionJugador1;
     Label LabelPuntuacionMaxima;
     Letrero letrero;
@@ -58,33 +59,33 @@ public class Marcador extends VBox {
     
     public void puntuacion (int [][] apuntes, int columnaClic, int filaClic, int resultado) {
         
-        System.out.println("Apunte: " + apuntes[columnaClic][filaClic]);
+        //System.out.println("Apunte: " + apuntes[columnaClic][filaClic]);
         
-        if (resultado == 1 && apuntes[columnaClic][filaClic] == 0){
+        if (resultado == 1 && apuntes[columnaClic][filaClic] == 0 && finalPartida == false){
             puntos_J1 += 1;
             System.out.println("Puntos Jugador 1: " + puntos_J1);
             LabelPuntuacionJugador1.setText(String.valueOf(puntos_J1));
         };
         
-        if (resultado == 2 && apuntes[columnaClic][filaClic] == 0){
+        if (resultado == 2 && apuntes[columnaClic][filaClic] == 0 && finalPartida == false){
             puntos_J1 += 3;
             System.out.println("Puntos Jugador 1: " + puntos_J1);
             LabelPuntuacionJugador1.setText(String.valueOf(puntos_J1));
         };
         
-        if (resultado == 3 && apuntes[columnaClic][filaClic] == 0){
+        if (resultado == 3 && apuntes[columnaClic][filaClic] == 0 && finalPartida == false){
             puntos_J1 += 5;
             System.out.println("Puntos Jugador 1: " + puntos_J1);
             LabelPuntuacionJugador1.setText(String.valueOf(puntos_J1));
         };
         
-        if (resultado == 4 && apuntes[columnaClic][filaClic] == 0){
+        if (resultado == 4 && apuntes[columnaClic][filaClic] == 0 && finalPartida == false){
             puntos_J1 += 6;
             System.out.println("Puntos Jugador 1: " + puntos_J1);
             LabelPuntuacionJugador1.setText(String.valueOf(puntos_J1));
         };
         
-        if (resultado == 0){
+        if (resultado == 0 && finalPartida == false){
             puntos_J1 -= 1;
             System.out.println("Puntos Jugador 1: " + puntos_J1);
             LabelPuntuacionJugador1.setText(String.valueOf(puntos_J1));
@@ -98,8 +99,12 @@ public class Marcador extends VBox {
         }
         
         if (puntos_J1 <= 0){
-            letrero.imagenGameOver();
+            if (finalPartida == false) {
+                letrero.imagenGameOver();
+            }
+            letrero.quitarLetreros();
             System.out.println("Game Over");
+            finalPartida = true;
         } 
     }
 }

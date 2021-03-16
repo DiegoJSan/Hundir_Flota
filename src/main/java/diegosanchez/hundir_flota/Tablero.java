@@ -14,9 +14,40 @@ public class Tablero {
     //Array para la creacion de notas y saber qué hay en cada casilla
     int [][] apuntes = new int[NUM_COLUMNAS][NUM_FILAS];
     
+    
+    
     // Variables para horizontal o vertical
     int vertical;
     int horizontal;
+    
+    //Generar barcos de 0 casilla
+    public boolean generarBarco0 (){ 
+        // Variables para la posición inicial
+        int posicionXBarco0 = 0;
+        int posicionYBarco0 = 0;
+        //Bucle para cantidad de barcos de 0 casilla
+        try{
+            do{
+                //posicionar el barco de 0 casilla
+                //Bucle filas
+                for(int y=0; y<NUM_FILAS; y++){
+                    //Bucles columnas
+                    for(int x=0; x<NUM_COLUMNAS; x++){
+                barco[x][y] = 0;
+                    }
+                }
+                System.out.println("x1 = " + posicionXBarco0 + "  y1= " + posicionYBarco0);
+                //Comprobar que la casilla no está ocupada 
+            }while (barco[posicionXBarco0][posicionYBarco0] != 0); 
+                //Generar el barco si no está ocupada la casilla
+                barco[posicionXBarco0][posicionYBarco0] = 0;
+        } catch (Exception ex) {
+                System.out.println("No se ha creado el barco 0");
+                System.out.println(ex.getMessage());
+                return false;
+        }  
+        return true;
+    }
     
     //Generar barcos de 1 casilla
     public boolean generarBarco1 (){ 
@@ -38,9 +69,8 @@ public class Tablero {
                 System.out.println("No se ha creado el barco 1");
                 System.out.println(ex.getMessage());
                 return false;
-         }  
+        }  
         return true;
-    
     } 
     //Generar barcos de 2 casillas
     public boolean generarBarco2 (){ 
@@ -191,7 +221,7 @@ public class Tablero {
         return horizVert;
     } 
     
-    // Muestra los números
+    // Muestra los números de los barcos iniciales
     public void mostrarPorConsolaBarco(){
         //Bucle filas
         for(int y=0; y<NUM_FILAS; y++){
@@ -204,7 +234,7 @@ public class Tablero {
         }
     }
     
-    // Muestra los números
+    // Muestra los números de los disparos
     public void mostrarPorConsolaApuntes(){
         //Bucle filas
         for(int y=0; y<NUM_FILAS; y++){
@@ -214,6 +244,18 @@ public class Tablero {
                 System.out.print(apuntes [x][y] + " ");
             }
             System.out.println();
+        }
+    }
+    
+    // Muestra los números de los disparos
+    public void mostrarPorConsolaApuntesCero(){
+        //Bucle filas
+        for(int y=0; y<NUM_FILAS; y++){
+            //Bucles columnas
+            for(int x=0; x<NUM_COLUMNAS; x++){
+                //System.out.println("x=" + x + "y=" + y);
+                apuntes [x][y] = 0;
+            }
         }
     }
     

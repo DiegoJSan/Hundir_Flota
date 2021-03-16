@@ -1,7 +1,6 @@
 
 package diegosanchez.hundir_flota;
 
-import static java.lang.Math.random;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,35 +13,39 @@ import javafx.scene.layout.VBox;
 public class Botones extends VBox {
     
     Letrero letrero;
+    TableroVista tableroVista;
   
 
-    public Botones(Marcador marcador, Letrero letreo){
+    public Botones(Marcador marcador, Letrero letrero, Tablero tableroJugador1, TableroVista tableroVista){
         
         this.letrero = letrero;
+        this.tableroVista = tableroVista;
         
-        /*Label labelBarcosHundidosJ1_1 = new Label ("Barcos Hundidos");
-        labelBarcosHundidosJ1_1.setFont(Font.font(20));
-        labelBarcosHundidosJ1_1.setAlignment(Pos.CENTER);
-        
-        Label labelBarcosHundidosJ1_2 = new Label ("Jugador 1: ");
-        labelBarcosHundidosJ1_2.setFont(Font.font(20));
-        labelBarcosHundidosJ1_2.setAlignment(Pos.CENTER);*/
-        
-        // Un botón con una leyenda de texto vacía.
-        //Button buttonBoton1 = new Button("Comenzar");
         // Un botón con la leyenda de texto especificada.
-        Button buttonBoton2 = new Button("Reiniciar");
-        buttonBoton2.setOnAction((ActionEvent e) -> {
+        Button buttonReiniciar = new Button("Reiniciar");
+        buttonReiniciar.setOnAction((ActionEvent e) -> {
+            System.out.println("Reinicio Partida ");
             marcador.puntos_J1 = 5; 
             letrero.quitarImagenGameOver();
+            letrero.quitarLetreros();
+            marcador.LabelPuntuacionJugador1.setText(String.valueOf(marcador.puntos_J1));
+            marcador.finalPartida = false;
+            //Crear los barcos en el tablero  
+            tableroJugador1.generarBarco0();
+            tableroJugador1.cantBarcos4(1);
+            tableroJugador1.cantBarcos3(2);
+            tableroJugador1.cantBarcos2(3);
+            tableroJugador1.cantBarcos1(4);
+            //Mostrar el tablero       
+            tableroJugador1.mostrarPorConsolaBarco();
+            //Establecer todos los auntes a cero
+            tableroJugador1.mostrarPorConsolaApuntesCero();
+            //Llamar al método constructor TableroVista
+            tableroVista.crearCasillas();
         });
         this.setAlignment(Pos.CENTER);
         this.setPrefWidth(200);
-        
-        //this.getChildren().add(labelBarcosHundidosJ1_1);
-        //this.getChildren().add(labelBarcosHundidosJ1_2);
-        //this.getChildren().add(buttonBoton1);
-        this.getChildren().add(buttonBoton2);
+        this.getChildren().add(buttonReiniciar);
     }
     
     

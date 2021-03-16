@@ -39,13 +39,15 @@ public class App extends Application {
         Marcador marcador = new Marcador(tableroJugador1, letrero);
         paneRoot.setLeft(marcador); 
         
-        //Crear objeto y mostrar el método para la parte gráfica del Recuento
-        Botones botones = new Botones(marcador, letrero);
-        paneRoot.setRight(botones);
-        
         //Crear objeto y mostrar el método para la parte gráfica del tablero
         TableroVista tableroVista = new TableroVista(tableroJugador1, letrero, marcador);
-        paneRoot.setCenter(tableroVista);   
+        paneRoot.setCenter(tableroVista); 
+        
+        //Crear objeto y mostrar el método para la parte gráfica del Recuento
+        Botones botones = new Botones(marcador, letrero, tableroJugador1, tableroVista);
+        paneRoot.setRight(botones);
+        
+          
         
         
         //Mostrar el tablero       
