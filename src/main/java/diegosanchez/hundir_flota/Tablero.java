@@ -20,6 +20,9 @@ public class Tablero {
     int vertical;
     int horizontal;
     
+    int recuento;
+
+    
     //Generar barcos de 0 casilla
     public boolean generarBarco0 (){ 
         // Variables para la posición inicial
@@ -279,7 +282,7 @@ public class Tablero {
     
     //Método para apuntar cada clic de cada casilla
     public void mostrarApuntes (int resultado, int columnaClic, int filaClic, int apuntes [][]){
-       
+                
         if (resultado == 0){
             resultado = 9;
         }
@@ -288,5 +291,10 @@ public class Tablero {
         mostrarPorConsolaApuntes();
     }
     
-    
+    public void resultado(int resultado){
+        if (resultado == 1 || resultado == 2 || resultado == 3 || resultado == 4){
+            recuento ++;
+            System.out.println("Recuento : " + recuento);
+        }
+    }
 }

@@ -107,4 +107,6 @@ public class Marcador extends VBox {
             finalPartida = true;
         } 
     }
+    
+    
 }

@@ -17,7 +17,7 @@ public class Letrero extends HBox{
     final int TAMAÑO = 60;
     Label labelResultadoAgua;
     Label labelResultadoTocado;
-    Label labelResultadoHundido;
+    Label labelResultadoGana;
     ImageView imagenGameOverView;
     boolean tiroAgua;
     boolean tiroTocado;
@@ -37,20 +37,23 @@ public class Letrero extends HBox{
         labelResultadoTocado.setAlignment(Pos.CENTER);
         labelResultadoTocado.setVisible(true);
         
-        labelResultadoHundido = new Label (" Y Hundido");
-        labelResultadoHundido.setFont(Font.font(TAMAÑO));
-        labelResultadoHundido.setAlignment(Pos.CENTER);
-        labelResultadoHundido.setVisible(false);
+        labelResultadoGana = new Label ("Jugador 1 Gana!!!");
+        labelResultadoGana.setFont(Font.font(TAMAÑO));
+        labelResultadoGana.setAlignment(Pos.CENTER);
+        labelResultadoGana.setVisible(true);
         
         //this.getChildren().add(labelResultadoAgua);
         //this.getChildren().add(labelResultadoTocado);
         
         this.setAlignment(Pos.CENTER);
+        this.setMinHeight(150.00);
         
-        //this.getChildren().add(labelResultadoHundido);
+        
     }
        
-    public void tiro (int resultado/*, Tablero tableroJugador1, int columnaClic, int filaClic*/) {  
+    public void tiro (int resultado, int recuento, boolean finalPartida /*, Tablero tableroJugador1, int columnaClic, int filaClic*/) {  
+        
+        
         
         if (resultado == 0 && tiroAgua == false) {
             System.out.println("Letrero: Agua");
@@ -58,9 +61,7 @@ public class Letrero extends HBox{
             tiroTocado = false;
             this.getChildren().add(labelResultadoAgua);
             this.getChildren().remove(labelResultadoTocado);
-            /*labelResultadoAgua.setVisible(true);
-            labelResultadoTocado.setVisible(false);
-            labelResultadoHundido.setVisible(false);*/
+            this.getChildren().remove(labelResultadoGana);
         } 
         
         if (resultado != 0 && tiroTocado == false) {
@@ -69,6 +70,16 @@ public class Letrero extends HBox{
             tiroTocado = true;
             this.getChildren().remove(labelResultadoAgua);
             this.getChildren().add(labelResultadoTocado);
+            this.getChildren().remove(labelResultadoGana);
+        }
+        
+        
+        if (recuento == 20) {
+            System.out.println("Jugador 1 Gana!!!");
+            finalPartida = true;
+            this.getChildren().remove(labelResultadoAgua);
+            this.getChildren().remove(labelResultadoTocado);
+            this.getChildren().add(labelResultadoGana);
         }
         /*if (resultado == 1){
             System.out.println("Letrero: Tocado y Hundido");
@@ -100,12 +111,6 @@ public class Letrero extends HBox{
         var imagenGameOver = new Image(getClass().getResourceAsStream("/images/GameOver.png"));
         imagenGameOverView = new ImageView(imagenGameOver);
         this.getChildren().add(imagenGameOverView);
-        
-        
-        
-        //Posicionar imagen Game Over
-        /*imagenGameOverView.setLayoutX(ANCHO_PANTALLA/2 );
-        imagenGameOverView.setLayoutY(ALTO_PANTALLA/2 );*/
     }
     
      public void quitarImagenGameOver(){
@@ -115,6 +120,7 @@ public class Letrero extends HBox{
     public void quitarLetreros() {
         this.getChildren().remove(labelResultadoAgua);
         this.getChildren().remove(labelResultadoTocado);
+        this.getChildren().remove(labelResultadoGana);
     }
     
 }

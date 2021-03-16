@@ -34,7 +34,9 @@ public class TableroVista extends GridPane {
         crearCasillas ();
     }   
     public void crearCasillas () {
-        this.setStyle("-fx-grid-lines-visible: true");
+        //this.setStyle("-fx-grid-lines-visible: false");
+        this.setGridLinesVisible(false);
+        this.getChildren().clear();
         //Bucler para poner en graficos número o casillas
         for(int y=0; y<tableroJugador1.NUM_FILAS; y++) {
             for (int x=0; x<tableroJugador1.NUM_COLUMNAS; x++) {
@@ -47,6 +49,11 @@ public class TableroVista extends GridPane {
                     etiquetaTablero.setPrefHeight(TAMAÑO_Y);
                     etiquetaTablero.setAlignment(Pos.CENTER);
                     this.add(etiquetaTablero, x, y);
+                    Rectangle rectanguloTocado = new Rectangle();
+                    rectanguloTocado.setWidth(TAMAÑO_X);
+                    rectanguloTocado.setHeight(TAMAÑO_Y);
+                    rectanguloTocado.setFill(Color.GRAY);
+                    this.add(rectanguloTocado, x, y);
                 } else {
                     Rectangle rectanguloAgua = new Rectangle();
                     rectanguloAgua.setWidth(TAMAÑO_X);
@@ -71,6 +78,7 @@ public class TableroVista extends GridPane {
         this.setMaxWidth(TAMAÑO_X * tableroJugador1.NUM_COLUMNAS);
         this.setMaxHeight(TAMAÑO_Y * tableroJugador1.NUM_FILAS);
         this.controlRaton();
+        this.setGridLinesVisible(true);
     
     }
     
@@ -125,10 +133,13 @@ public class TableroVista extends GridPane {
             
             this.resultadoDisparo();
             
-            letrero.tiro(resultado);
+            
             marcador.puntuacion(tableroJugador1.apuntes,columnaClic, filaClic, resultado);
             tableroJugador1.mostrarApuntes(resultado, columnaClic, filaClic, tableroJugador1.apuntes);
+            tableroJugador1.resultado(resultado);
+            letrero.tiro(resultado, tableroJugador1.recuento, marcador.finalPartida);
             
+            //tableroJugador1.recuentoBarcos();
         });
     }
     /**

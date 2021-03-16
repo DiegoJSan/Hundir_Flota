@@ -28,6 +28,7 @@ public class Botones extends VBox {
             marcador.puntos_J1 = 5; 
             letrero.quitarImagenGameOver();
             letrero.quitarLetreros();
+            tableroJugador1.recuento = 0;
             marcador.LabelPuntuacionJugador1.setText(String.valueOf(marcador.puntos_J1));
             marcador.finalPartida = false;
             //Crear los barcos en el tablero  
