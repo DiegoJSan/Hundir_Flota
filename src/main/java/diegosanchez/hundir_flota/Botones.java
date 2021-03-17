@@ -28,6 +28,7 @@ public class Botones extends VBox {
             marcador.puntos_J1 = 5; 
             letrero.quitarImagenGameOver();
             letrero.quitarLetreros();
+            letrero.ponerLetreros();
             tableroJugador1.recuento = 0;
             marcador.LabelPuntuacionJugador1.setText(String.valueOf(marcador.puntos_J1));
             marcador.finalPartida = false;
@@ -44,6 +45,8 @@ public class Botones extends VBox {
             tableroJugador1.mostrarPorConsolaApuntesCero();
             //Llamar al método constructor TableroVista
             tableroVista.crearCasillas();
+            //
+            System.out.println("Dispare en Casilla");
         });
         this.setAlignment(Pos.CENTER);
         this.setPrefWidth(200);

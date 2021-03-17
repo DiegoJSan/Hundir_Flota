@@ -137,7 +137,7 @@ public class TableroVista extends GridPane {
             marcador.puntuacion(tableroJugador1.apuntes,columnaClic, filaClic, resultado);
             tableroJugador1.mostrarApuntes(resultado, columnaClic, filaClic, tableroJugador1.apuntes);
             tableroJugador1.resultado(resultado);
-            letrero.tiro(resultado, tableroJugador1.recuento, marcador.finalPartida);
+            letrero.tiro(resultado, tableroJugador1.recuento, marcador);
             
             //tableroJugador1.recuentoBarcos();
         });

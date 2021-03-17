@@ -47,8 +47,7 @@ public class App extends Application {
         Botones botones = new Botones(marcador, letrero, tableroJugador1, tableroVista);
         paneRoot.setRight(botones);
         
-          
-        
+        System.out.println("Dispare en Casilla");
         
         //Mostrar el tablero       
         tableroJugador1.mostrarPorConsolaBarco();   
