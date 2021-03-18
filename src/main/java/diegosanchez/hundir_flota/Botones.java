@@ -26,6 +26,7 @@ public class Botones extends VBox {
         buttonReiniciar.setOnAction((ActionEvent e) -> {
             System.out.println("Reinicio Partida ");
             marcador.puntos_J1 = 5; 
+            letrero.tiroAgua = false;
             letrero.quitarImagenGameOver();
             letrero.quitarLetreros();
             letrero.ponerLetreros();
@@ -51,7 +52,11 @@ public class Botones extends VBox {
         this.setAlignment(Pos.CENTER);
         this.setPrefWidth(200);
         this.getChildren().add(buttonReiniciar);
+        
+        
     }
     
-    
+    public void reiniciarJuego(){
+            
+        }
 }

@@ -14,6 +14,7 @@ public class TableroVista extends GridPane {
     Letrero letrero;
     Tablero tableroJugador1;
     Marcador marcador;
+    Sonidos sonido;
     final int TAMAÑO_X = 40;
     final int TAMAÑO_Y = 40;
     int resultado;
@@ -23,12 +24,12 @@ public class TableroVista extends GridPane {
     Rectangle [][] arrayrectanguloCasillaInicial;
     
     //Método para mostrar gráficamente las casillas del tablero    
-    public TableroVista(Tablero tableroJugador1, Letrero letrero, Marcador marcador) {
+    public TableroVista(Tablero tableroJugador1, Letrero letrero, Marcador marcador, Sonidos sonido) {
         
         this.letrero = letrero;
         this.tableroJugador1 = tableroJugador1;
         this.marcador = marcador;
-        
+        this.sonido = sonido;
         //Crear array para casillas iniciales en azul
         arrayrectanguloCasillaInicial = new Rectangle[tableroJugador1.NUM_COLUMNAS][tableroJugador1.NUM_FILAS];
         crearCasillas ();
@@ -154,6 +155,7 @@ public class TableroVista extends GridPane {
            
             } else{ 
             System.out.println("Tocado");
+            sonido.explosionBarco();
         }
         return resultado;
     }

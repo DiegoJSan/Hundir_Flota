@@ -31,6 +31,9 @@ public class App extends Application {
         tableroJugador1.cantBarcos2(3);
         tableroJugador1.cantBarcos1(4);
         
+        //Crear objeto para los sonido
+        Sonidos sonido = new Sonidos();
+        
         //Crear objeto y mostrar el método para la parte gráfica del Letrero
         Letrero letrero = new Letrero();
         paneRoot.setTop(letrero);
@@ -40,12 +43,13 @@ public class App extends Application {
         paneRoot.setLeft(marcador); 
         
         //Crear objeto y mostrar el método para la parte gráfica del tablero
-        TableroVista tableroVista = new TableroVista(tableroJugador1, letrero, marcador);
+        TableroVista tableroVista = new TableroVista(tableroJugador1, letrero, marcador, sonido);
         paneRoot.setCenter(tableroVista); 
         
         //Crear objeto y mostrar el método para la parte gráfica del Recuento
         Botones botones = new Botones(marcador, letrero, tableroJugador1, tableroVista);
         paneRoot.setRight(botones);
+        
         
         System.out.println("Dispare en Casilla");
         
