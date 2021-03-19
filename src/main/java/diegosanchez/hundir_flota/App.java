@@ -6,17 +6,20 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-
-
+/**
+ * Clase general donde se inicializa la aplicación
+ * @author Diego J. Sánchez
+ * @version: 29/03/2021/A
+ */
 public class App extends Application {
-    
-    
-    
+    /**
+     * Clase de iniciación de la aplicación
+     * @param stage Ventana de inicio de juego
+     */
     @Override
     public void start(Stage stage) {
         
-        
-        
+        //Crear objeto para la ventana inicial
         BorderPane paneRoot = new BorderPane();
         var scene = new Scene(paneRoot, 900, 600);
         stage.setScene(scene);
@@ -47,10 +50,10 @@ public class App extends Application {
         paneRoot.setCenter(tableroVista); 
         
         //Crear objeto y mostrar el método para la parte gráfica del Recuento
-        Botones botones = new Botones(marcador, letrero, tableroJugador1, tableroVista);
+        Botones botones = new Botones(marcador, letrero, tableroJugador1, tableroVista, sonido);
         paneRoot.setRight(botones);
         
-        
+        //Mostrar en consola al iniciar el juego
         System.out.println("Dispare en Casilla");
         
         //Mostrar el tablero       
@@ -60,5 +63,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
