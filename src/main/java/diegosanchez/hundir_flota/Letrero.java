@@ -104,7 +104,7 @@ public class Letrero extends HBox{
         }
         
         //Comprobar el recuento de tocado para ganar juego
-        if (recuento == 20) {
+        if (recuento == 20 && marcador.finalPartida == false) {
             System.out.println("Jugador 1 Gana!!!");
             sonido.sonidoGanaPartida();
             marcador.finalPartida = true;
